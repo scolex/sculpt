@@ -1,0 +1,16 @@
+
+[project]
+name = "sculpt"
+version = "0.1.0"
+description = "Simple tool for prototyping boardgames"
+authors = [
+    {name = "Stanislav Nowak", email = "scolex.cz@gmail.com"},
+]
+dependencies = []
+requires-python = ">=3.7"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
