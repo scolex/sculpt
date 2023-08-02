@@ -7,7 +7,7 @@ RUN pipx install pdm \
 RUN sudo apt-get update \
     && sudo apt-get install -y libcairo2-dev
 
-# RUN pre-commit install
+RUN pre-commit install
 
 #COPY pyproject.toml .
 #RUN touch README.md \
