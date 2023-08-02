@@ -14,9 +14,7 @@
 				"ms-azuretools.vscode-docker",
 				"ms-python.python",
 				"ms-python.vscode-pylance",
-				"ms-python.pylint",
-				"ms-python.isort",
-				"ms-python.flake8",
+				"ruff",
 				"ms-python.black-formatter",
 				"ms-vsliveshare.vsliveshare",
 				"ryanluker.vscode-coverage-gutters",
@@ -28,14 +26,8 @@
 				"black-formatter.path": [
 					"/usr/local/py-utils/bin/black"
 				],
-				"pylint.path": [
-					"/usr/local/py-utils/bin/pylint"
-				],
-				"flake8.path": [
-					"/usr/local/py-utils/bin/flake8"
-				],
-				"isort.path": [
-					"/usr/local/py-utils/bin/isort"
+				"ruff.path": [
+					"/usr/local/py-utils/bin/ruff"
 				]
 			}
 		}
