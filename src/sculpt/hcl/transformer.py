@@ -3,9 +3,9 @@ from __future__ import annotations
 
 import re
 import sys
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
-from lark import Transformer, Token
+from lark import Token, Transformer
 from lark.visitors import v_args
 
 if TYPE_CHECKING:
@@ -53,14 +53,14 @@ class DictTransformer(Transformer[Token, "dict[str, list[dict[str, Any]]]"]):
 
     def index_expr_term(self, args: list[str]) -> str:
         args = self.strip_new_line_tokens(args)
-        return f"{str(args[0])}{str(args[1])}"
+        return f"{args[0]!s}{str(args[1])}"
 
     def index(self, args: list[int | str]) -> str:
         args = self.strip_new_line_tokens(args)
-        return f"[{str(args[0])}]"
+        return f"[{args[0]!s}]"
 
     def get_attr_expr_term(self, args: list[str]) -> str:
-        return f"{str(args[0])}{str(args[1])}"
+        return f"{args[0]!s}{str(args[1])}"
 
     def get_attr(self, args: list[str]) -> str:
         return f".{args[0]}"
@@ -102,7 +102,7 @@ class DictTransformer(Transformer[Token, "dict[str, list[dict[str, Any]]]"]):
         args_str = ""
         if len(args) > 1:
             args_str = ",".join([str(arg) for arg in args[1]])
-        return f"{str(args[0])}({args_str})"
+        return f"{args[0]!s}({args_str})"
 
     def arguments(self, args: list) -> list:
         return args

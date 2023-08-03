@@ -1,0 +1,153 @@
+{
+  "locals": [
+    {
+      "ternary_single_line": [
+        "${var.test == \"\" ? 0 : 1}"
+      ],
+      "ternary_question_mark_break": [
+        "${var.test == \"\" ? 0 : 1}"
+      ],
+      "ternary_colon_break": [
+        "${var.test == \"\" ? 0 : 1}"
+      ],
+      "ternary_multi_line": [
+        "${var.test == \"\" ? 0 : 1}"
+      ],
+      "ternary_pre_question_mark_break": [
+        "${var.test == \"\" ? 0 : 1}"
+      ],
+      "ternary_pre_colon_break": [
+        "${var.test == \"\" ? 0 : 1}"
+      ],
+      "ternary_pre_multi_line": [
+        "${var.test == \"\" ? 0 : 1}"
+      ],
+      "binary_single_line": [
+        "${False || True}"
+      ],
+      "binary_operator_break": [
+        "${False || True}"
+      ],
+      "binary_pre_operator_break": [
+        "${False || True}"
+      ],
+      "binary_operator_break_comment": [
+        "${True && True}"
+      ],
+      "__start_line__": 1,
+      "__end_line__": 42
+    },
+    {
+      "servers": [
+        "${[for serverkey in local.configjson.Servers : merge({'a': 'b'})]}"
+      ],
+      "__start_line__": 114,
+      "__end_line__": 132
+    },
+    {
+      "transform": [
+        "${{for s in local.some_strings : s => {'name': '${upper(s)}', 'tag': 'test'}}}"
+      ],
+      "__start_line__": 134,
+      "__end_line__": 156
+    },
+    {
+      "test_1": [
+        "${var.used != None ? var.used : \"not set\"}"
+      ],
+      "test_2": [
+        "${var.used != None ? var.used : \"not set\"}"
+      ],
+      "test_3": [
+        "string"
+      ],
+      "__start_line__": 158,
+      "__end_line__": 198
+    }
+  ],
+  "variable": [
+    {
+      "some_var": {
+        "description": [
+          "description"
+        ],
+        "type": [
+          "${string}"
+        ],
+        "validation": [
+          {
+            "condition": [
+              "${alltrue(['${length(regexall(\"^st\",var.some_var)) == 0}'])}"
+            ],
+            "error_message": [
+              "error"
+            ]
+          }
+        ],
+        "__start_line__": 44,
+        "__end_line__": 71
+      }
+    },
+    {
+      "some_var2": {
+        "description": [
+          "description"
+        ],
+        "type": [
+          "${string}"
+        ],
+        "default": [
+          "${cidrsubnets(\"10.0.0.0/24\",2,2)}"
+        ],
+        "__start_line__": 73,
+        "__end_line__": 89
+      }
+    }
+  ],
+  "resource": [
+    {
+      "null_resource": {
+        "multiline_comment_multiline": {
+          "triggers": [
+            []
+          ],
+          "__start_line__": 91,
+          "__end_line__": 96
+        }
+      }
+    },
+    {
+      "null_resource": {
+        "multiline_comment_single_line_before_closing_bracket": {
+          "triggers": [
+            []
+          ],
+          "__start_line__": 98,
+          "__end_line__": 101
+        }
+      }
+    },
+    {
+      "null_resource": {
+        "multiline_comment_single_line_between_brackets": {
+          "triggers": [
+            []
+          ],
+          "__start_line__": 103,
+          "__end_line__": 107
+        }
+      }
+    },
+    {
+      "null_resource": {
+        "multiline_comment_single_line_after_opening_bracket": {
+          "triggers": [
+            []
+          ],
+          "__start_line__": 109,
+          "__end_line__": 112
+        }
+      }
+    }
+  ]
+}

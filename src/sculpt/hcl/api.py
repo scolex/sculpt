@@ -7,7 +7,7 @@ from __future__ import annotations
 import re
 from typing import Any, TextIO
 
-from hcl.parser import hcl, strip_line_comment
+from .parser import hcl, strip_line_comment
 
 
 def load(file: TextIO) -> dict[str, list[dict[str, Any]]]:

@@ -17,6 +17,11 @@ license = {text = "MIT"}
 [project.scripts]
 sculpt = "sculpt.core:main"
 
+[project.optional-dependencies]
+pytest = [
+    "pytest",
+]
+
 [build-system]
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
@@ -35,7 +40,8 @@ doc = {shell = "cd docs && mkdocs serve", help = "Start the dev server for doc p
 lint = "pre-commit run --all-files"
 
 [tool.pdm.dev-dependencies]
-test = [
+test = [    
+    "sculpt[pytest]",
     "pytest>=7.4.0",
 ]
 doc = [
@@ -75,7 +81,16 @@ exclude = ["tests/fixtures"]
 target-version = "py37"
 
 [tool.ruff.mccabe]
-max-complexity = 10
+max-complexity = 15
 
 [tool.ruff.isort]
 known-first-party = ["sculpt"]
+
+[tool.pytest.ini_options]
+filterwarnings = [
+  "ignore::DeprecationWarning"
+]
+addopts = "-r aR"
+testpaths = [
+    "tests/",
+]

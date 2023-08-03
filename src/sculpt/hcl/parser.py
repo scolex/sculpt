@@ -4,15 +4,16 @@ from __future__ import annotations
 import sys
 from typing import Any
 
-from hcl.transformer import DictTransformer
 from lark import Lark
+
+from .transformer import DictTransformer
 
 if sys.version_info >= (3, 9):  # pragma: no cover
     from importlib.resources import files
 else:
     from importlib_resources import files
 
-LARK_GRAMMAR = (files(__package__) / "hcl.lark").read_text()
+LARK_GRAMMAR = (files(__package__) / "grammar.lark").read_text()
 
 
 def strip_line_comment(line: str) -> tuple[str, str, str] | tuple[str, None, None]:
